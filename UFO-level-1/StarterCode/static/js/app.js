@@ -5,16 +5,20 @@ var tableData = data;
 
 var tbody = d3.select("tbody");
 var table = d3.select("table");
+tbody.style("text-align", "center")
 
-// var counter = 1 
 data.forEach(function (tableData) {
-    // console.log(tableData)
-    // console.log(`--------------${counter}-----------------------------`);
-    // counter +=1
     var row = tbody.append("tr")
     Object.entries(tableData).forEach(function ([key, value]) {
-        row.append("td").text(value)
+        var cell = row.append("td")
+        cell.text(value)
     })
+
+    // <td style="text-align:center">NetBeans</td>
 })
 
-
+// <tbody style="text-align:right;">
+// <tr><td></td><td>123,456,789</td><td></td></tr>
+// <tr><td></td><td>456,789</td><td></td></tr>
+// <tr><td></td><td>789</td><td></td></tr>
+// </tbody>
