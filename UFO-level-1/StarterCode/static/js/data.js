@@ -1,3 +1,4 @@
+// * Make sure you have a column for `date/time`, `city`, `state`, `country`, `shape`, and `comment` at the very least.
 var data = [{
     datetime: "1/1/2010",
     city: "benton",
