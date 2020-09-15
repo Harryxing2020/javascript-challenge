@@ -17,7 +17,7 @@ tableData.forEach(function (ufodata) {
 
 var button = d3.select("#filter-btn");
 // Select the form
-var form = d3.select("#datetime");
+var form = d3.select("#ufoform");
 
 // Create event handlers 
 button.on("click", runEnter);
@@ -25,6 +25,9 @@ form.on("submit", runEnter);
 
 // Complete the event handler function for the form
 function runEnter() {
+
+    console.log("-----------------------------------")
+
     // Prevent the page from refreshing
     d3.event.preventDefault();
     // Select the input element and get the raw HTML node
