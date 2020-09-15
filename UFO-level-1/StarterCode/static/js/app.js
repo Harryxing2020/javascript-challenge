@@ -7,9 +7,9 @@ var tbody = d3.select("tbody");
 var table = d3.select("table");
 tbody.style("text-align", "center")
 
-data.forEach(function (tableData) {
+tableData.forEach(function (ufodata) {
     var row = tbody.append("tr")
-    Object.entries(tableData).forEach(function ([key, value]) {
+    Object.entries(ufodata).forEach(function ([key, value]) {
         var cell = row.append("td")
         cell.text(value)
     })
@@ -21,20 +21,31 @@ var form = d3.select("#datetime");
 
 // Create event handlers 
 button.on("click", runEnter);
-form.on("submit",runEnter);
+form.on("submit", runEnter);
 
 // Complete the event handler function for the form
 function runEnter() {
-  // Prevent the page from refreshing
-  d3.event.preventDefault();
-  // Select the input element and get the raw HTML node
-  var inputElement = d3.select("#datetime");
-  // Get the value property of the input element
-  var inputValue = inputElement.property("value");
-  console.log(inputValue);
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#datetime");
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
+    console.log(inputValue);
 
-  var filteredData = tableData.filter(ufodata => ufodata.datetime === inputValue);
+    var filteredDatas = tableData.filter(ufodata => ufodata.datetime === inputValue);
+    console.log(filteredDatas);
 
-  console.log(filteredData);
+    ///////////////////////////////////////////////////////////////////////////////
+    tbody.html("");
+    filteredDatas.forEach(function (filteredData) {
+        var row = tbody.append("tr")
+        Object.entries(filteredData).forEach(function ([key, value]) {
+            var cell = row.append("td")
+            cell.text(value)
+        })
+    })
+    /////////////////////////////////////////////////////////////////////////////////
+
 
 };
