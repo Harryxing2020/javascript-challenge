@@ -8,23 +8,34 @@ tbody.style("text-align", "center")
 function displayData(showData) {
     // clear data 
     tbody.html("");
-    // show the data from json data 
-    showData.forEach(function (ufodata) {
-        var row = tbody.append("tr")
-        Object.entries(ufodata).forEach(function ([key, value]) {
-            var cell = row.append("td")
-            cell.text(value)
+    // cannot find any data 
+    if (showData.length == 0) {
+        d3.select("tbody")
+            .append("tr")
+            .append("td")
+            .attr("colspan", 7)
+            .html("<h5>Sorry, no records found</h5>");
+    } else {
+        // show the data from json data
+        showData.forEach(function (ufodata) {
+            var row = tbody.append("tr")
+            Object.entries(ufodata).forEach(function ([key, value]) {
+                var cell = row.append("td")
+                cell.text(value)
+            })
         })
-    })
+
+    }
+
 }
 
 /////////////////////////////////////////////////////////////////////
 // show all ufo data in dataset
-displayData(tableData)
 /////////////////////////////////////////////////////////////////////
+displayData(tableData)
 
 /////////////////////////////////////////////////////////////////////
-// show datatime search ufo data in dataset
+//1. show datatime search ufo data in dataset
 /////////////////////////////////////////////////////////////////////
 
 // Select the button
@@ -37,26 +48,22 @@ formDatetime.on("submit", runEnterDatetime);
 
 // Complete the event handler function for the form
 function runEnterDatetime() {
-
     // Prevent the page from refreshing
     d3.event.preventDefault();
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
+    //filter the datatime you input 
     var filteredDatas = tableData.filter(ufodata => ufodata.datetime === inputValue);
-
-    if (filteredDatas.length===0){
-        // cannot find any data 
-        // show all data
-        filteredDatas = tableData
-    }
     // show data 
-
     displayData(filteredDatas)
 };
 
-
+/////////////////////////////////////////////////////////////////////
+//2. show city search ufo data in dataset
+/////////////////////////////////////////////////////////////////////
+// Select the city search button
 var buttonCity = d3.select("#filter-btn-city");
 // Select the form
 var formCity = d3.select("#ufoform-city");
@@ -67,36 +74,22 @@ formCity.on("submit", runEnterCity);
 
 // Complete the event handler function for the form
 function runEnterCity() {
-
-    console.log("-----------------------------------")
-
     // Prevent the page from refreshing
     d3.event.preventDefault();
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#cityname");
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
-    console.log(inputValue);
-
+    //filter the City you input 
     var filteredDatas = tableData.filter(ufodata => ufodata.city === inputValue);
-    console.log(filteredDatas);
-
-    ///////////////////////////////////////////////////////////////////////////////
-    tbody.html("");
-    filteredDatas.forEach(function (filteredData) {
-        var row = tbody.append("tr")
-        Object.entries(filteredData).forEach(function ([key, value]) {
-            var cell = row.append("td")
-            cell.text(value)
-        })
-    })
-    /////////////////////////////////////////////////////////////////////////////////
-
-
+    // show data 
+    displayData(filteredDatas)
 };
 
-
-
+/////////////////////////////////////////////////////////////////////
+//3. show state search ufo data in dataset
+/////////////////////////////////////////////////////////////////////
+// Select the state search button
 var buttonState = d3.select("#filter-btn-state");
 // Select the form
 var formState = d3.select("#ufoform-state");
@@ -107,36 +100,21 @@ formState.on("submit", runEnterState);
 
 // Complete the event handler function for the form
 function runEnterState() {
-
-    console.log("-----------------------------------")
-
     // Prevent the page from refreshing
     d3.event.preventDefault();
     // Select the input element and get the raw HTML node
     var inputElement = d3.select("#statename");
     // Get the value property of the input element
     var inputValue = inputElement.property("value");
-    console.log(inputValue);
-
+    //filter the state you input
     var filteredDatas = tableData.filter(ufodata => ufodata.state === inputValue);
-    console.log(filteredDatas);
-
-    ///////////////////////////////////////////////////////////////////////////////
-    tbody.html("");
-    filteredDatas.forEach(function (filteredData) {
-        var row = tbody.append("tr")
-        Object.entries(filteredData).forEach(function ([key, value]) {
-            var cell = row.append("td")
-            cell.text(value)
-        })
-    })
-    /////////////////////////////////////////////////////////////////////////////////
-
-
+    displayData(filteredDatas)
 };
 
 
-
+/////////////////////////////////////////////////////////////////////
+//4. show city search ufo data in dataset
+/////////////////////////////////////////////////////////////////////
 
 
 var buttonCountryname = d3.select("#filter-btn-country");
