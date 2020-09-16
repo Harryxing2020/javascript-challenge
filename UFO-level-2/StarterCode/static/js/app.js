@@ -15,16 +15,16 @@ tableData.forEach(function (ufodata) {
     })
 })
 
-var button = d3.select("#filter-btn-datetime");
+var buttonDatetime = d3.select("#filter-btn-datetime");
 // Select the form
-var form = d3.select("#ufoform-datetime");
+var formDatetime = d3.select("#ufoform-datetime");
 
 // Create event handlers 
-button.on("click", runEnter);
-form.on("submit", runEnter);
+buttonDatetime.on("click", runEnterDatetime);
+formDatetime.on("submit", runEnterDatetime);
 
 // Complete the event handler function for the form
-function runEnter() {
+function runEnterDatetime() {
 
     console.log("-----------------------------------")
 
@@ -52,3 +52,165 @@ function runEnter() {
 
 
 };
+
+
+var buttonCity = d3.select("#filter-btn-city");
+// Select the form
+var formCity = d3.select("#ufoform-city");
+
+// Create event handlers 
+buttonCity.on("click", runEnterCity);
+formCity.on("submit", runEnterCity);
+
+// Complete the event handler function for the form
+function runEnterCity() {
+
+    console.log("-----------------------------------")
+
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#cityname");
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
+    console.log(inputValue);
+
+    var filteredDatas = tableData.filter(ufodata => ufodata.city === inputValue);
+    console.log(filteredDatas);
+
+    ///////////////////////////////////////////////////////////////////////////////
+    tbody.html("");
+    filteredDatas.forEach(function (filteredData) {
+        var row = tbody.append("tr")
+        Object.entries(filteredData).forEach(function ([key, value]) {
+            var cell = row.append("td")
+            cell.text(value)
+        })
+    })
+    /////////////////////////////////////////////////////////////////////////////////
+
+
+};
+
+
+
+var buttonState = d3.select("#filter-btn-state");
+// Select the form
+var formState = d3.select("#ufoform-state");
+
+// Create event handlers 
+buttonState.on("click", runEnterState);
+formState.on("submit", runEnterState);
+
+// Complete the event handler function for the form
+function runEnterState() {
+
+    console.log("-----------------------------------")
+
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#statename");
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
+    console.log(inputValue);
+
+    var filteredDatas = tableData.filter(ufodata => ufodata.state === inputValue);
+    console.log(filteredDatas);
+
+    ///////////////////////////////////////////////////////////////////////////////
+    tbody.html("");
+    filteredDatas.forEach(function (filteredData) {
+        var row = tbody.append("tr")
+        Object.entries(filteredData).forEach(function ([key, value]) {
+            var cell = row.append("td")
+            cell.text(value)
+        })
+    })
+    /////////////////////////////////////////////////////////////////////////////////
+
+
+};
+
+
+
+
+
+var buttonCountryname = d3.select("#filter-btn-country");
+// Select the form
+var formCountryname = d3.select("#countryname");
+
+// Create event handlers 
+buttonCountryname.on("click", runEnterCountryname);
+formCountryname.on("submit", runEnterCountryname);
+
+// Complete the event handler function for the form
+function runEnterCountryname() {
+
+    console.log("-----------------------------------")
+
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#countryname");
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
+    console.log(inputValue);
+
+    var filteredDatas = tableData.filter(ufodata => ufodata.country === inputValue);
+    console.log(filteredDatas);
+
+    ///////////////////////////////////////////////////////////////////////////////
+    tbody.html("");
+    filteredDatas.forEach(function (filteredData) {
+        var row = tbody.append("tr")
+        Object.entries(filteredData).forEach(function ([key, value]) {
+            var cell = row.append("td")
+            cell.text(value)
+        })
+    })
+    /////////////////////////////////////////////////////////////////////////////////
+
+
+};
+
+
+
+var buttonShape = d3.select("#filter-btn-shape");
+// Select the form
+var formShape = d3.select("#ufoform-shape");
+
+// Create event handlers 
+buttonShape.on("click", runEnterShape);
+formShape.on("submit", runEnterShape);
+
+// Complete the event handler function for the form
+function runEnterShape() {
+
+    console.log("-----------------------------------")
+
+    // Prevent the page from refreshing
+    d3.event.preventDefault();
+    // Select the input element and get the raw HTML node
+    var inputElement = d3.select("#shapename");
+    // Get the value property of the input element
+    var inputValue = inputElement.property("value");
+    console.log(inputValue);
+
+    var filteredDatas = tableData.filter(ufodata => ufodata.shape === inputValue);
+    console.log(filteredDatas);
+
+    ///////////////////////////////////////////////////////////////////////////////
+    tbody.html("");
+    filteredDatas.forEach(function (filteredData) {
+        var row = tbody.append("tr")
+        Object.entries(filteredData).forEach(function ([key, value]) {
+            var cell = row.append("td")
+            cell.text(value)
+        })
+    })
+    /////////////////////////////////////////////////////////////////////////////////
+
+
+};
+
