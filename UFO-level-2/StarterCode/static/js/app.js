@@ -47,6 +47,7 @@ buttonFilter.on("click", runEnterFilter);
 
 buttonShowAll.on("click", showAllData);
 
+// show all ufo data in dataset
 function showAllData(){
     displayData(tableData)
 }
@@ -78,7 +79,9 @@ function runEnterFilter() {
     // Get the value property of the input element
     var inputElementshapeValue = inputElementshape.property("value");
 
+    // initial data for display
     var filteredDatas =[]
+
     if (inputElementdatetimeValue ==="" 
         && inputElementcitynameValue ===""
         && inputElementstatenameValue ===""
@@ -104,19 +107,9 @@ function runEnterFilter() {
                 }
 
 
-
                 if (inputElementshapeValue !="" && filteredDatas.length !=0){
                     console.log(filteredDatas)
                     filteredDatas = filteredDatas.filter(ufodata => ufodata.shape === inputElementshapeValue);
-
-                    console.log("-----++++++++++++++++++++++++++++++++++++++++")
-                    console.log(inputElementshapeValue)
-                    console.log("-----++++++++++++++++++++++++++++++++++++++++")
-
-                    console.log("-----++++++++++++++++++++++++++++++++++++++++")
-                    console.log(inputElementdatetimeValue)
-                    console.log("-----++++++++++++++++++++++++++++++++++++++++")
-                    console.log(filteredDatas)
 
                 }
 
