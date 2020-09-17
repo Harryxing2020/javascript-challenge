@@ -40,7 +40,12 @@ displayData(tableData)
 
 var buttonFilter = d3.select("#filter-btn-filter");
 var buttonShowAll = d3.select("#filter-btn-all-data");
-const inputField = document.getElementById("datetime");
+
+var inputFielddatetime = document.getElementById("datetime");
+var inputFieldcityname = document.getElementById("cityname");
+var inputFieldstatename = document.getElementById("statename");
+var inputFieldcountryname = document.getElementById("countryname");
+var inputFieldshapename = document.getElementById("shapename");
 
 // Create event handlers 
 buttonFilter.on("click", runEnterFilter);
@@ -50,9 +55,13 @@ buttonShowAll.on("click", showAllData);
 // show all ufo data in dataset
 function showAllData() {
     displayData(tableData)
-    // d3.select("#datetime").value=""
-    console.log(inputField.value)
-    inputField.value=""
+
+    // clear all field input.
+    inputFielddatetime.value=""
+    inputFieldcityname.value=""
+    inputFieldstatename.value=""
+    inputFieldcountryname.value=""
+    inputFieldshapename.value=""
 }
 
 

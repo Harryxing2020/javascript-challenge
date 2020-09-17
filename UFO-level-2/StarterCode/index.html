@@ -12,15 +12,41 @@
 
 <body>
   <div class="wrapper">
-    <nav class="navbar navbar-default">
+    <!-- <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="index.html">UFO Sightings
             <img class="nav-ufo" src="static/images/ufo.svg">
           </a>
+
+
         </div>
       </div>
-    </nav>
+
+    </nav> -->
+    <nav class="navbar navbar-default navbar-light navbar-custom">
+      <div class="navbar-header" >
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#pointer-navbar-collapse-menu" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="bar-title" href="index.html">UFO Sightings
+
+            <img class="nav-ufo" src="static/images/ufo.svg">
+          </a>
+      </div>
+      <div class="collapse navbar-collapse" id="pointer-navbar-collapse-menu">
+          <ul class="nav navbar-nav navbar-right">
+              <li>
+                  <a href="harryxing@hotmail.com">Harry Xing's Homework</a>
+              </li>
+          </ul>
+      </div>
+  </nav>
+
     <div class="hero text-center">
       <h1>UFO Sightings</h1>
       <p>The Truth is Out There</p>
@@ -155,7 +181,7 @@
                     </ul>
                   </div>
                   <button id="filter-btn-filter" type="submit" class="btn btn-default">Filter by Shape </button>
-                  <button id="filter-btn-all-data" type="button" class="btn btn-default">Show All Data </button>           
+                  <button id="filter-btn-all-data" type="button" class="btn btn-default">Show All Data </button>
                 </form>
 
               </div>
@@ -184,8 +210,10 @@
         </div>
       </div>
     </div>
-    <footer class="footer">
-      <span class="bottom">UFO Sightings</span>
+    <footer class="text-center text-muted py-4">
+      <hr>
+      <hr>
+      Copyright @ Harry Xing Email: Harryxing@hotmail.com
     </footer>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.11.0/d3.js"></script>
