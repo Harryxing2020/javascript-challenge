@@ -91,8 +91,6 @@ function runEnterFilter() {
         filteredDatas = []
     } else {
 
-        console.log(inputElementstatenameValue)
-        console.log(inputElementdatetimeValue)
         filteredDatas= tableData
         // if field not empty 
         if (inputElementdatetimeValue != "") {
