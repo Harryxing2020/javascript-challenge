@@ -87,7 +87,7 @@ function runEnterFilter() {
         && inputElementstatenameValue === ""
         && inputElementcountrynameValue === ""
         && inputElementshapeValue === "") {
-        // all input field empty
+        // all input field empty, show empty data list
         filteredDatas = []
     } else {
 
