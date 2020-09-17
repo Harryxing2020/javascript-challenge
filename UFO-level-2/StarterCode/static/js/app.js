@@ -39,14 +39,30 @@ displayData(tableData)
 /////////////////////////////////////////////////////////////////////
 
 
-var buttonShape = d3.select("#filter-btn-shape");
+var buttonFilter = d3.select("#filter-btn-filter");
+
+var buttonShowAll = d3.select("#filter-btn-all-data");
+
+
+// 
+
+
 // Select the form
 // var formShape = d3.select("#ufoform-shape");
 // Create event handlers 
-buttonShape.on("click", runEnterShape);
+buttonFilter.on("click", runEnterFilter);
+
+buttonShowAll.on("click", showAllData);
+
+function showAllData(){
+    displayData(tableData)
+}
+
 
 // Complete the event handler function for the form
-function runEnterShape() {
+function runEnterFilter() {
+
+    console.log("-----++++++++++++++++++++++++++++++++++++++++")
 
 
     // Prevent the page from refreshing
