@@ -40,7 +40,7 @@ displayData(tableData)
 
 var buttonFilter = d3.select("#filter-btn-filter");
 var buttonShowAll = d3.select("#filter-btn-all-data");
-
+const inputField = document.getElementById("datetime");
 
 // Create event handlers 
 buttonFilter.on("click", runEnterFilter);
@@ -50,6 +50,9 @@ buttonShowAll.on("click", showAllData);
 // show all ufo data in dataset
 function showAllData() {
     displayData(tableData)
+    // d3.select("#datetime").value=""
+    console.log(inputField.value)
+    inputField.value=""
 }
 
 
@@ -81,11 +84,9 @@ function runEnterFilter() {
 
     // initial data for display
     var filteredDatas = []
-
-    if (inputElementdatetimeValue === ""
-        && inputElementcitynameValue === ""
-        && inputElementstatenameValue === ""
-        && inputElementcountrynameValue === ""
+    // if all input field empty
+    if (inputElementdatetimeValue === "" && inputElementcitynameValue === ""
+        && inputElementstatenameValue === "" && inputElementcountrynameValue === ""
         && inputElementshapeValue === "") {
         // all input field empty, show empty data list
         filteredDatas = []
@@ -111,7 +112,6 @@ function runEnterFilter() {
         }
 
         // if field not empty and data not empty in previous filter
-
         if (inputElementcountrynameValue != "" && filteredDatas.length != 0) {
             filteredDatas = filteredDatas.filter(ufodata => ufodata.country === inputElementcountrynameValue.toLowerCase());
         }
