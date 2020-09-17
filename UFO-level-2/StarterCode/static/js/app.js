@@ -48,7 +48,7 @@ buttonFilter.on("click", runEnterFilter);
 buttonShowAll.on("click", showAllData);
 
 // show all ufo data in dataset
-function showAllData(){
+function showAllData() {
     displayData(tableData)
 }
 
@@ -80,38 +80,40 @@ function runEnterFilter() {
     var inputElementshapeValue = inputElementshape.property("value");
 
     // initial data for display
-    var filteredDatas =[]
+    var filteredDatas = []
 
-    if (inputElementdatetimeValue ==="" 
-        && inputElementcitynameValue ===""
-        && inputElementstatenameValue ===""
-        && inputElementcountrynameValue ===""
-        && inputElementshapeValue ===""){
-        // all field empty
-    } else{
+    if (inputElementdatetimeValue === ""
+        && inputElementcitynameValue === ""
+        && inputElementstatenameValue === ""
+        && inputElementcountrynameValue === ""
+        && inputElementshapeValue === "") {
+        // all input field empty
+        filteredDatas = []
+    } else {
+        // if field not empty 
+        if (inputElementdatetimeValue != "") {
+            filteredDatas = tableData.filter(ufodata => ufodata.datetime === inputElementdatetimeValue);
 
-        if (inputElementdatetimeValue !=""){
-                filteredDatas = tableData.filter(ufodata => ufodata.datetime === inputElementdatetimeValue);
-                
-                if (inputElementcitynameValue !="" && filteredDatas.length !=0){
-                    filteredDatas = filteredDatas.filter(ufodata => ufodata.city === inputElementcitynameValue.toLowerCase());
-                }
+            // if field not empty and data not empty in previous filter
+            if (inputElementcitynameValue != "" && filteredDatas.length != 0) {
+                filteredDatas = filteredDatas.filter(ufodata => ufodata.city === inputElementcitynameValue.toLowerCase());
+            }
 
-                if (inputElementstatenameValue !="" && filteredDatas.length !=0){
+            // if field not empty and data not empty in previous filter
+            if (inputElementstatenameValue != "" && filteredDatas.length != 0) {
+                filteredDatas = filteredDatas.filter(ufodata => ufodata.state === inputElementstatenameValue.toLowerCase());
+            }
 
-                    filteredDatas = filteredDatas.filter(ufodata => ufodata.state === inputElementstatenameValue.toLowerCase());
-                }
+            // if field not empty and data not empty in previous filter
 
-                if (inputElementcountrynameValue !="" && filteredDatas.length !=0){
-                    filteredDatas = filteredDatas.filter(ufodata => ufodata.country === inputElementcountrynameValue.toLowerCase());
-                }
+            if (inputElementcountrynameValue != "" && filteredDatas.length != 0) {
+                filteredDatas = filteredDatas.filter(ufodata => ufodata.country === inputElementcountrynameValue.toLowerCase());
+            }
 
-
-                if (inputElementshapeValue !="" && filteredDatas.length !=0){
-                    console.log(filteredDatas)
-                    filteredDatas = filteredDatas.filter(ufodata => ufodata.shape === inputElementshapeValue);
-
-                }
+            // if field not empty and data not empty in previous filter
+            if (inputElementshapeValue != "" && filteredDatas.length != 0) {
+                filteredDatas = filteredDatas.filter(ufodata => ufodata.shape === inputElementshapeValue);
+            }
 
         }
 
