@@ -90,32 +90,39 @@ function runEnterFilter() {
         // all input field empty
         filteredDatas = []
     } else {
+
+        console.log(inputElementstatenameValue)
+        console.log(inputElementdatetimeValue)
+        filteredDatas= tableData
         // if field not empty 
         if (inputElementdatetimeValue != "") {
-            filteredDatas = tableData.filter(ufodata => ufodata.datetime === inputElementdatetimeValue);
-
-            // if field not empty and data not empty in previous filter
-            if (inputElementcitynameValue != "" && filteredDatas.length != 0) {
-                filteredDatas = filteredDatas.filter(ufodata => ufodata.city === inputElementcitynameValue.toLowerCase());
-            }
-
-            // if field not empty and data not empty in previous filter
-            if (inputElementstatenameValue != "" && filteredDatas.length != 0) {
-                filteredDatas = filteredDatas.filter(ufodata => ufodata.state === inputElementstatenameValue.toLowerCase());
-            }
-
-            // if field not empty and data not empty in previous filter
-
-            if (inputElementcountrynameValue != "" && filteredDatas.length != 0) {
-                filteredDatas = filteredDatas.filter(ufodata => ufodata.country === inputElementcountrynameValue.toLowerCase());
-            }
-
-            // if field not empty and data not empty in previous filter
-            if (inputElementshapeValue != "" && filteredDatas.length != 0) {
-                filteredDatas = filteredDatas.filter(ufodata => ufodata.shape === inputElementshapeValue);
-            }
+            filteredDatas = filteredDatas.filter(ufodata => ufodata.datetime === inputElementdatetimeValue);
 
         }
+        // if field not empty and data not empty in previous filter
+        if (inputElementcitynameValue != "" && filteredDatas.length != 0) {
+            filteredDatas = filteredDatas.filter(ufodata => ufodata.city === inputElementcitynameValue.toLowerCase());
+        }
+
+        // if field not empty and data not empty in previous filter
+        if (inputElementstatenameValue != "" && filteredDatas.length != 0) {
+            console.log(inputElementstatenameValue)
+            filteredDatas = filteredDatas.filter(ufodata => ufodata.state === inputElementstatenameValue.toLowerCase());
+            console.log(filteredDatas)
+
+        }
+
+        // if field not empty and data not empty in previous filter
+
+        if (inputElementcountrynameValue != "" && filteredDatas.length != 0) {
+            filteredDatas = filteredDatas.filter(ufodata => ufodata.country === inputElementcountrynameValue.toLowerCase());
+        }
+
+        // if field not empty and data not empty in previous filter
+        if (inputElementshapeValue != "" && filteredDatas.length != 0) {
+            filteredDatas = filteredDatas.filter(ufodata => ufodata.shape === inputElementshapeValue);
+        }
+
 
     }
 
