@@ -38,17 +38,10 @@ displayData(tableData)
 //show search ufo data in dataset
 /////////////////////////////////////////////////////////////////////
 
-
 var buttonFilter = d3.select("#filter-btn-filter");
-
 var buttonShowAll = d3.select("#filter-btn-all-data");
 
 
-// 
-
-
-// Select the form
-// var formShape = d3.select("#ufoform-shape");
 // Create event handlers 
 buttonFilter.on("click", runEnterFilter);
 
@@ -61,9 +54,6 @@ function showAllData(){
 
 // Complete the event handler function for the form
 function runEnterFilter() {
-
-    console.log("-----++++++++++++++++++++++++++++++++++++++++")
-
 
     // Prevent the page from refreshing
     d3.event.preventDefault();
@@ -99,7 +89,7 @@ function runEnterFilter() {
 
         if (inputElementdatetimeValue !=""){
                 filteredDatas = tableData.filter(ufodata => ufodata.datetime === inputElementdatetimeValue);
-
+                
                 if (inputElementcitynameValue !="" && filteredDatas.length !=0){
                     filteredDatas = filteredDatas.filter(ufodata => ufodata.city === inputElementcitynameValue.toLowerCase());
                 }
@@ -113,8 +103,20 @@ function runEnterFilter() {
                     filteredDatas = filteredDatas.filter(ufodata => ufodata.country === inputElementcountrynameValue.toLowerCase());
                 }
 
+
+
                 if (inputElementshapeValue !="" && filteredDatas.length !=0){
+                    console.log(filteredDatas)
                     filteredDatas = filteredDatas.filter(ufodata => ufodata.shape === inputElementshapeValue);
+
+                    console.log("-----++++++++++++++++++++++++++++++++++++++++")
+                    console.log(inputElementshapeValue)
+                    console.log("-----++++++++++++++++++++++++++++++++++++++++")
+
+                    console.log("-----++++++++++++++++++++++++++++++++++++++++")
+                    console.log(inputElementdatetimeValue)
+                    console.log("-----++++++++++++++++++++++++++++++++++++++++")
+                    console.log(filteredDatas)
 
                 }
 
